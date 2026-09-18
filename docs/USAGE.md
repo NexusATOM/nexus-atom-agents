@@ -4,6 +4,19 @@
 
 NOOA is NVIDIA's Python agent framework (`nooa==0.0.10`), not NOAA, the US agency. ATOM keeps NOOA optional so deterministic workflows and local examples can run without an LLM. The retained GEOS specialists already use real NOOA `@strategy(PredictStrategy(...))` dispatch.
 
+## Specialist agents versus proposal backends
+
+GEOS has six specialist classes: RepositoryAgent, ArchitectureAgent, CUDAAgent,
+PerformanceAgent, ValidationAgent, and the coordinating GEOSAgent. See the
+[agent usage guide](https://github.com/nasa-nccs-hpda/nexus-geos-agent/blob/main/docs/AGENTS.md)
+for runnable examples and tool composition. They are distinct from the three
+runtime backends in this package: selecting NOOARuntime does not automatically
+invoke that specialist team. GEOS's built-in specialist workflow uses one model
+client sequentially; direct Python composition can assign different clients.
+
+Standalone `nexus-geos-agent` and `nexus-atom-geos` both install `geos_agents` and
+`geos-agent`; use separate virtual environments for those distributions.
+
 ## Local JSON adapter
 
 This complete example runs a tiny stand-in proposal process. Replace the command with a real locally installed model/coding-agent wrapper that obeys the same JSON protocol:
