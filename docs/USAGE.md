@@ -8,14 +8,15 @@ NOOA is NVIDIA's Python agent framework (`nooa==0.0.10`), not NOAA, the US agenc
 
 GEOS has six specialist classes: RepositoryAgent, ArchitectureAgent, CUDAAgent,
 PerformanceAgent, ValidationAgent, and the coordinating GEOSAgent. See the
-[agent usage guide](https://github.com/nasa-nccs-hpda/nexus-geos-agent/blob/main/docs/AGENTS.md)
+[agent usage guide](https://github.com/NexusATOM/nexus-atom-geos/blob/main/docs/AGENTS.md)
 for runnable examples and tool composition. They are distinct from the three
 runtime backends in this package: selecting NOOARuntime does not automatically
 invoke that specialist team. GEOS's built-in specialist workflow uses one model
 client sequentially; direct Python composition can assign different clients.
 
-Standalone `nexus-geos-agent` and `nexus-atom-geos` both install `geos_agents` and
-`geos-agent`; use separate virtual environments for those distributions.
+The agent implementation now lives in `nexus-atom-geos`, alongside its ATOM
+plugin. Install that package with `[nooa]`; do not co-install the old
+`nexus-geos-agent` distribution, which owns the same import and CLI names.
 
 ## Local JSON adapter
 
